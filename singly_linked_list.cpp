@@ -13,9 +13,16 @@ void push(Node** head_ref,int new_data){
 }
 void printlist(Node *node){
     while(node !=NULL){
-        cout<<node->data;
+        cout<<node->data<<"->";
         node=node->next;
     }
+}
+void insertAfter(Node *prev_node, int data){
+    Node *new_node =new Node();
+    new_node->data=data;
+    new_node->next=prev_node->next;
+    prev_node->next=new_node;
+    
 }
 int main() {
 	// your code goes here
@@ -29,9 +36,11 @@ int main() {
 		cin>>m;
 		push(&head,m);
 		cout<<head->data;
+		if(i==2){insertAfter(head->next,8);}
 		
 	}
 	cout<<endl<<"linked list printing..."<<endl;
 	printlist(head);
+	
 	return 0;
 }
