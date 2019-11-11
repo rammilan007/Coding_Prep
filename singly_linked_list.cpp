@@ -11,19 +11,27 @@ void push(Node** head_ref,int new_data){
 	new_node->next=(*head_ref);
 	(*head_ref)=new_node;
 }
+void printlist(Node *node){
+    while(node !=NULL){
+        cout<<node->data;
+        node=node->next;
+    }
+}
 int main() {
 	// your code goes here
 	int n,m;
 	Node *head=NULL;
 	head=new Node();
-	head->data=44;
+	head->data=0;
 	cin>>n;
-	cout<<&head<<endl;
+// 	cout<<&head<<endl;
 	for(int i=0;i<n;i++){
 		cin>>m;
 		push(&head,m);
 		cout<<head->data;
 		
 	}
+	cout<<endl<<"linked list printing..."<<endl;
+	printlist(head);
 	return 0;
 }
